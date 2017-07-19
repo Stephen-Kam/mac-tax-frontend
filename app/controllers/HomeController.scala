@@ -72,8 +72,8 @@ class HomeController @Inject()(ws: WSClient, val messagesApi: MessagesApi) exten
 
   def submitBackend(session: Session, mackCount: Int): Future[Unit] = {
     ws.url("http://localhost:9001/calculate").withQueryString(
-      "appleCount" -> session.get("appleCount").get,
-      "mackCount" -> s"$mackCount").get().map {
+      "apps" -> session.get("appleCount").get,
+      "macs" -> s"$mackCount").get().map {
       result =>
         val body = result.body
         val p = new PrintWriter(new File("public/result.json"))
