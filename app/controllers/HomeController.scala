@@ -71,7 +71,7 @@ class HomeController @Inject()(ws: WSClient, val messagesApi: MessagesApi) exten
   }
 
   def submitBackend(session: Session, mackCount: Int): Future[Unit] = {
-    ws.url("https://localhost:9001/calculate").withQueryString(
+    ws.url("http://localhost:9001/calculate").withQueryString(
       "appleCount" -> session.get("appleCount").get,
       "mackCount" -> s"$mackCount").get().map {
       result =>
