@@ -76,7 +76,7 @@ class HomeController @Inject()(ws: WSClient, val messagesApi: MessagesApi) exten
       "mackCount" -> s"$mackCount").get().map {
       result =>
         val body = result.body
-        val p = new PrintWriter(new File("/public/result.json"))
+        val p = new PrintWriter(new File("public/result.json"))
         p.write(body)
         p.close()
     }
