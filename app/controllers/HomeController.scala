@@ -67,7 +67,7 @@ class HomeController @Inject()(ws: WSClient, val messagesApi: MessagesApi) exten
   }
 
   def readJson(): JsValue = {
-    Json.parse(getClass.getResourceAsStream("/public/result.json"))
+    Json.parse(getClass.getResourceAsStream("public/result.json"))
   }
 
   def submitBackend(session: Session, mackCount: Int): Future[Unit] = {
