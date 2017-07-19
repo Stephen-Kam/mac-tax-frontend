@@ -5276,6 +5276,12 @@ Styleguide Table.Modifiers
     font-weight: 400;
 }
 
+.table--light-header tr {
+    border-top: 2px;
+    color: #005ea5;
+    font-weight: 400;
+}
+
 .table--heavy-footer {
     border-bottom: 3px solid #a1acb2;
 }
