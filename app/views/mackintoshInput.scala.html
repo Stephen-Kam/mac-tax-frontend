@@ -1,0 +1,43 @@
+@(mackintoshForm: Form[Int])(implicit messages: Messages, flash: Flash, request: Request[_])
+@import helper._
+
+@main("Mac Tax") {
+
+    <main id="wrapper" role ="main">
+        <div class="centered-content">
+            <div class="service-info">
+                <div class="logo">
+                    <span class="organisation-logo organisation-logo-medium">
+                        HM Revenue & Customs</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="content">
+            <article class="content__body">
+
+                <p class>English | Cymraeg</p>
+
+                <h1>Enter the number of Mackintoshes you own</h1>
+
+                <div class="form-group">
+                    <fieldset class="form-field-group">
+                    @form(action=routes.HomeController.submitMackintosh()){
+                        @helper.input(mackintoshForm("")) { (id, name, value, args) =>
+                            <input type="number" class="input--xsmall" value="0" name="mackCount" id="mackCount" min="0" @toHtmlArgs(args)>
+                        }
+                        <input class="button" type="submit" value="Submit">
+                    }
+                    </fieldset>
+                </div>
+
+
+            </article>
+        </div>
+
+
+    </main>
+
+
+}

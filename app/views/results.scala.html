@@ -1,0 +1,75 @@
+@(result: CalculatorResult)(implicit messages: Messages, flash: Flash, request: Request[_])
+@import helper._
+
+@main("Mac Tax") {
+
+    <main id="wrapper" role ="main">
+        <div class="centered-content">
+            <div class="service-info">
+                <div class="logo">
+                    <span class="organisation-logo organisation-logo-medium">
+                        HM Revenue & Customs</span>
+                </div>
+            </div>
+        </div>
+        <div id="content">
+            <article class="content__body">
+                <p class>English | Cymraeg</p>
+
+                <h1>This is how much Mac Tax you owe</h1>
+                <div class="form-group">
+                    <fieldset class="form-field-group">
+                        <div class="grid-layout">
+                            <div class="grid-layout__column--1-3">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td class="font-small">Apple Macs you own:</td>
+                                            <td class="font-small">@result.apps
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-small">Mackintoshes you own:</td>
+                                            <td class="font-small">@result.macs
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-small">Tax per Apple Mac:</td>
+                                            <td class="font-small">£@result.costPerApp
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-small">Tax per Machintosh:</td>
+                                            <td class="font-small">£@result.costPerMac
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-small">Total per Apple Mac:</td>
+                                            <td class="font-small">£@result.totalApp
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-small">Total per Machintosh:</td>
+                                            <td class="font-small">£@result.totalMac
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-small">Total tax amount you owe:</td>
+                                            <td class="font-small">£@result.total
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <a class="button" href="@routes.HomeController.index()">Re-enter values</a>
+
+            </article>
+        </div>
+
+    </main>
+
+
+}
